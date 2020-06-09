@@ -4,6 +4,8 @@ workflow TRUST4_workflow {
   String samplename
   Int thread
   Int stage
+  Int memory
+  Int disk
 
   call TRUST4_pe_hg38
   {input:
@@ -11,7 +13,9 @@ workflow TRUST4_workflow {
     fastq2=fastq2,
     samplename=samplename,
     thread=thread,
-    stage=stage
+    stage=stage,
+    memory=memory,
+    disk=disk
   }
 
 }
@@ -22,6 +26,8 @@ task TRUST4_pe_hg38{
   String samplename
   Int thread
   Int stage
+  Int memory
+  Int disk
 
   command {
     /home/TRUST4/run-trust4 -1 ${fastq1} -2 ${fastq2} \
@@ -33,8 +39,8 @@ task TRUST4_pe_hg38{
 
   runtime {
     docker:"jemimalwh/trust4:0.2.0"
-    memory:"4 GB"
-    disks: "local‐disk 5 SSD"
+    memory:"${memory} GB"
+    disks: "local‐disk ${disk} SSD"
   }
 
   output {
