@@ -21,5 +21,4 @@ RUN apt-get update && \
 
 WORKDIR /work
 
-
-
+ENV PATH /home/TRUST4:${PATH}
