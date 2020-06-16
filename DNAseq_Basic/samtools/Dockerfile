@@ -4,7 +4,7 @@ MAINTAINER jemimalwh@gmail.com
 
 ARG SAMTOOLS_VERSION=1.10
 
-ENV PACKAGES apt-utils wget build-essential gcc-multilib libz-dev libbzip2 liblzma-dev libncurses5-dev
+ENV PACKAGES apt-utils wget build-essential gcc-multilib libz-dev libbz2-dev liblzma-dev libncurses5-dev
 
 RUN set -ex
 
